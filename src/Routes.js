@@ -24,7 +24,6 @@ class Routes extends Component {
   render() {
     return (
       <div className="Routes">
-      
         <Switch>
           <Route
             exact

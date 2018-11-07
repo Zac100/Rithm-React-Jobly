@@ -1,4 +1,7 @@
+import axios from 'axios';
+
 const BASE_URL = "http://localhost:3001";
+
 
 class JoblyApi {
   static async request(endpoint, params = {}, verb = "get") {
@@ -29,6 +32,11 @@ class JoblyApi {
       let message = err.response.data.message;
       throw Array.isArray(message) ? message : [message];
     }
+  }
+
+  static async getCompanies() {
+    let res = await this.request(`companies`);
+    return res.companies;
   }
 
   static async getCompany(handle) {

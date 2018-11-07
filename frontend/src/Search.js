@@ -15,7 +15,12 @@ class Search extends Component {
 
   async handleSubmit(evt) {
     evt.preventDefault();
-    let searchResults = await JoblyApi.searchCompany(this.state.search);
+    let searchResults;
+
+    (this.props.companySearch ? 
+    (searchResults = await JoblyApi.searchCompany(this.state.search)):
+    (searchResults = await JoblyApi.searchJob(this.state.search)))
+
     this.props.handleSearch(searchResults);
     this.setState({ search: '' });
   }

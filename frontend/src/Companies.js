@@ -48,7 +48,7 @@ class Companies extends Component {
     return (
       <div className="Companies">
         <div>
-          <Search handleSearch={this.handleSearch} />
+          <Search handleSearch={this.handleSearch} companySearch={true} />
         </div>
         {this.state.companyList}
       </div>

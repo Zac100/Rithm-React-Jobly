@@ -9,10 +9,14 @@ class Search extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  //changes state whenever search value is changed.
   handleChange(evt) {
     this.setState({ [evt.target.name]: evt.target.value });
   }
 
+  //sets final state to either search company or search job 
+  //depending on if companySearch is t/f
+  //
   async handleSubmit(evt) {
     evt.preventDefault();
     let searchResults;

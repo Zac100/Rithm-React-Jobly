@@ -11,7 +11,7 @@ class Companies extends Component {
     this.handleSearch = this.handleSearch.bind(this);
   }
 
-  // search
+  // search function, adds default image because image URL on server is broken.
   handleSearch(searchResult) {
     let companyList = searchResult.map(company => {
       return (
@@ -23,12 +23,13 @@ class Companies extends Component {
         />
       );
     });
-
     this.setState(st => ({
       companyList
     }));
   }
 
+  //on first mount, load all company data from server
+  //set state to array of components of CompanyCards
   async componentDidMount() {
     let companies = await JoblyApi.getCompanies();
     let companyList = companies.map(company => {

@@ -33,15 +33,19 @@ class JoblyApi {
     }
   }
 
+  //get all companies from server
   static async getCompanies() {
     let res = await this.request(`companies`);
     return res.companies;
   }
 
+  //get specific company from server
   static async getCompany(handle) {
     let res = await this.request(`companies/${handle}`);
     return res.company;
   }
+
+  //get searched companies from server based on search term.
   static async searchCompany(search) {
     let res = await this.request(`companies`, {
       search: `${search}`
@@ -49,11 +53,13 @@ class JoblyApi {
     return res.companies;
   }
 
+  //get all jobs from server
   static async getJobs() {
     let res = await this.request(`jobs`);
     return res.jobs;
   }
 
+  //get searched jobs from server based on search term.
   static async searchJob(search) {
     let res = await this.request(`jobs`, {
       search: `${search}`

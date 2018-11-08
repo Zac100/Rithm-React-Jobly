@@ -11,7 +11,8 @@ class Jobs extends Component {
     this.handleSearch = this.handleSearch.bind(this);
   }
 
-  // search
+  // search function for jobs. Changes state to 
+  //JobCard components of search results. 
   handleSearch(searchResult) {
     let jobList = searchResult.map(job => {
       return (
@@ -22,12 +23,13 @@ class Jobs extends Component {
         />
       );
     });
-
     this.setState(st => ({
       jobList
     }));
   }
 
+  //on mount, gets all jobs from server and 
+  //displays JobCard components
   async componentDidMount() {
     let jobs = await JoblyApi.getJobs();
     let jobList = jobs.map(job => {

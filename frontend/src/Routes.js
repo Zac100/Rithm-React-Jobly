@@ -14,13 +14,6 @@ class Routes extends Component {
     this.state = {};
   }
 
-//   updateState(color) {
-//     let addMe = { ...color };
-//     this.setState(st => ({
-//       colors: [...st.colors, addMe]
-//     }));
-//   }
-
   render() {
     return (
       <div className="Routes">

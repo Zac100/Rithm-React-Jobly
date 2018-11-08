@@ -69,8 +69,8 @@ class JoblyApi {
 
   //login and return a token
   static async login(userData) {
-    let res = await axios.post(`${BASE_URL}/login`, userData);
-    return res.data.token;
+    let res = await this.request(`login`, userData, 'post');
+    return res.token;
   }
 
   //get specific user from server
@@ -80,8 +80,8 @@ class JoblyApi {
   }
 
   static async signUp(userData) {
-    let res = await axios.post(`${BASE_URL}/users`, userData);
-    return res.data.token;
+    let res = await this.request(`users`, userData, 'post');
+    return res.token;
   }
 }
 

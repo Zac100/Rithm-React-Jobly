@@ -10,7 +10,8 @@ class SignUpForm extends Component {
       password: '',
       first_name: '',
       last_name: '',
-      email: ''
+      email: '',
+      error: []
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,38 +22,43 @@ class SignUpForm extends Component {
     this.setState({ [evt.target.name]: evt.target.value });
   }
 
-  //sets final state to either search company or search job
-  //depending on if companySearch is t/f
-  //
+  //on signup button click, request token from Api,
+  // then decode token, call database to get user info
+  // Set the state of the app with the user info
+  // If error, set state to the error and displays in the render
   async handleSubmit(evt) {
-    evt.preventDefault();
-    let userData = {
-      username: this.state.username,
-      password: this.state.password,
-      first_name: this.state.first_name,
-      last_name: this.state.last_name,
-      email: this.state.email
-    };
+    try {
+      evt.preventDefault();
+      let userData = {
+        username: this.state.username,
+        password: this.state.password,
+        first_name: this.state.first_name,
+        last_name: this.state.last_name,
+        email: this.state.email
+      };
 
-    let token = await JoblyApi.signUp(userData);
+      let token = await JoblyApi.signUp(userData);
 
-    localStorage.setItem('_token', token);
+      localStorage.setItem('_token', token);
 
-    let tokenUser = decode(token);
+      let tokenUser = decode(token);
 
-    let user = await JoblyApi.getUser(tokenUser.username);
+      let user = await JoblyApi.getUser(tokenUser.username);
 
-    this.props.handleUser(user);
+      this.props.handleUser(user);
 
-    this.setState({
-      username: '',
-      password: '',
-      first_name: '',
-      last_name: '',
-      email: ''
-    });
+      this.setState({
+        username: '',
+        password: '',
+        first_name: '',
+        last_name: '',
+        email: ''
+      });
 
-    this.props.history.push('/');
+      this.props.history.push('/');
+    } catch (err) {
+      this.setState({ error: err });
+    }
   }
 
   render() {
@@ -101,6 +107,7 @@ class SignUpForm extends Component {
           />
           <button>Login</button>
         </form>
+        <div className="bg-danger">{this.state.error}</div>
       </div>
     );
   }

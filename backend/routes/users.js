@@ -56,9 +56,6 @@ router.post('/', async function(req, res, next) {
     delete req.body._token;
     const validation = validate(req.body, userNewSchema);
 
-    console.log('re.body is ', req.body);
-    console.log('validation is ', validation);
-
     if (!validation.valid) {
       return next({
         status: 400,

@@ -15,12 +15,10 @@ class App extends Component {
   // add user to current state
   async handleUser(user) {
     await this.setState({ currUser: user });
-    console.log(this.state);
   }
 
   async componentDidMount() {
     let token = localStorage.getItem('_token');
-    // debugger;
 
     if (token) {
       let tokenUser = decode(token);

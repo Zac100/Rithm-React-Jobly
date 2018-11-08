@@ -75,7 +75,7 @@ class SignUpForm extends Component {
           />
           <label htmlFor="login">Password:</label>
           <input
-            type="text"
+            type="password"
             id="password"
             name="password"
             onChange={this.handleChange}
@@ -99,7 +99,7 @@ class SignUpForm extends Component {
           />
           <label htmlFor="login">Email:</label>
           <input
-            type="text"
+            type="email"
             id="email"
             name="email"
             onChange={this.handleChange}

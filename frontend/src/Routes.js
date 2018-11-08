@@ -21,7 +21,8 @@ class Routes extends Component {
     return (
       <div className="Routes">
         <Switch>
-          <Route exact path="/" render={() => <Home />} />
+          <Route exact path="/" render={props => <Home
+                currentUser={this.props.currentUser}/>} />
 
           {userExists ? (
             <Route exact path="/companies" render={props => <Companies />} />

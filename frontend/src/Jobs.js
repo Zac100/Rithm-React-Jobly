@@ -6,7 +6,7 @@ import Search from './Search';
 class Jobs extends Component {
   constructor(props) {
     super(props);
-    this.state = { jobList: [] };
+    this.state = { jobList: [], loading: true };
 
     this.handleSearch = this.handleSearch.bind(this);
   }
@@ -43,7 +43,7 @@ class Jobs extends Component {
         />
       );
     });
-    this.setState({ jobList });
+    this.setState({ jobList, loading: false });
   }
 
   render() {
@@ -52,7 +52,7 @@ class Jobs extends Component {
         <div>
           <Search handleSearch={this.handleSearch} companySearch={false} />
         </div>
-        {this.state.jobList}
+        {this.state.loading ? <h1>loading...</h1> : this.state.jobList}
       </div>
     );
   }

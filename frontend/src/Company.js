@@ -8,7 +8,7 @@ class Company extends Component {
     this.state = { company: [] };
   }
 
-  // Get info on the company and jobs for that company
+  // Get info on the company and jobs for that company on mount.
   async componentDidMount() {
     let company = await JoblyApi.getCompany(this.props.match.params.handle);
 

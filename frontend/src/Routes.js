@@ -16,17 +16,29 @@ class Routes extends Component {
   }
 
   render() {
+    // If the below value exists, opens up all routes, otherwise routes redirects to home
+    let userExists = this.props.currentUser;
     return (
       <div className="Routes">
         <Switch>
           <Route exact path="/" render={() => <Home />} />
-          <Route exact path="/companies" render={props => <Companies />} />
-          <Route
-            exact
-            path="/companies/:handle"
-            render={props => <Company {...props} />}
-          />
-          <Route exact path="/jobs" render={props => <Jobs />} />
+
+          {userExists ? (
+            <Route exact path="/companies" render={props => <Companies />} />
+          ) : null}
+
+          {userExists ? (
+            <Route
+              exact
+              path="/companies/:handle"
+              render={props => <Company {...props} />}
+            />
+          ) : null}
+
+          {userExists ? (
+            <Route exact path="/jobs" render={props => <Jobs />} />
+          ) : null}
+
           <Route
             exact
             path="/login"
@@ -38,12 +50,17 @@ class Routes extends Component {
               />
             )}
           />
-          <Route exact path="/profile" render={props => <Profile />} />
+
+          {userExists ? (
+            <Route exact path="/profile" render={props => <Profile />} />
+          ) : null}
+
           <Route
             exact
             path="/logout"
             render={props => <Logout handleUser={this.props.handleUser} />}
           />
+
           <Redirect to="/" />
         </Switch>
       </div>

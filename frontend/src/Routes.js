@@ -5,6 +5,7 @@ import Companies from './Companies'
 import Company from './Company'
 import Jobs from './Jobs'
 import Login from './Login'
+import Logout from './Logout'
 import Profile from './Profile'
 import './App.css';
 
@@ -41,12 +42,17 @@ class Routes extends Component {
           <Route
             exact
             path="/login"
-            render={props => <Login />}
+            render={props => <Login {...props} currentUser={this.props.currentUser} handleUser={this.props.handleUser} />}
           />
            <Route
             exact
             path="/profile"
             render={props => <Profile />}
+          />
+           <Route
+            exact
+            path="/logout"
+            render={props => <Logout handleUser={this.props.handleUser}/>}
           />
            <Redirect
             to="/"

@@ -3,6 +3,11 @@ import {NavLink} from 'react-router-dom'
 import './NavBar.css';
 
 class NavBar extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
     return (
         <nav>
@@ -10,7 +15,7 @@ class NavBar extends Component {
             <NavLink to='/companies'>Companies</NavLink>
             <NavLink to='/jobs'>Jobs</NavLink>
             <NavLink to='/profile'>Profile</NavLink>
-            <NavLink to='/login'>Log out</NavLink>
+            {(this.props.currentUser) ? <NavLink to='/logout'>Logout</NavLink> :<NavLink to='/login'>Login</NavLink>}
         </nav>
     );
   }

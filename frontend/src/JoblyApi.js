@@ -66,6 +66,19 @@ class JoblyApi {
     });
     return res.jobs;
   }
+
+  //login and return a token
+  static async login(userData) {
+    let res = await axios.post(`${BASE_URL}/login`,
+      userData);
+    return res.data.token;
+  }
+
+   //get specific user from server
+   static async getUser(username) {
+    let res = await this.request(`users/${username}`);
+    return res;
+  }
 }
 
 export default JoblyApi;

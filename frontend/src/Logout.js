@@ -8,7 +8,7 @@ class Logout extends Component {
   }
 
   logout(){
-    localStorage.setItem('_token',null)
+    localStorage.removeItem('_token')
     this.props.handleUser(null)
   }
 

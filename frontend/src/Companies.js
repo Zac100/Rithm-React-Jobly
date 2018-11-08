@@ -36,6 +36,7 @@ class Companies extends Component {
       return (
         <CompanyCard
           handle={company.handle}
+          key={company.handle}
           name={company.name}
           description={company.description}
           image={`https://images-na.ssl-images-amazon.com/images/I/41lbqx87syL.jpg`}

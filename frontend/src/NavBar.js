@@ -7,18 +7,10 @@ class NavBar extends Component {
   render() {
     const authedLinks = (
       <div>
-        <NavLink to="/companies">
-          <button> Companies</button>
-        </NavLink>
-        <NavLink to="/jobs">
-          <button> Jobs</button>
-        </NavLink>
-        <NavLink to="/profile">
-          <button> Profile</button>
-        </NavLink>
-        <NavLink to="/logout">
-          <button> Logout</button>
-        </NavLink>
+        <NavLink to="/companies"> Companies</NavLink>
+        <NavLink to="/jobs">Jobs</NavLink>
+        <NavLink to="/profile">Profile</NavLink>
+        <NavLink to="/logout">Logout</NavLink>
       </div>
     );
     const links = (

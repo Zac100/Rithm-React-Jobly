@@ -87,8 +87,12 @@ router.patch('/:username', ensureCorrectUser, async function(req, res, next) {
       });
     }
 
-    const user = await User.update(req.params.username, req.body);
-    return res.json({ user });
+    const checkPassword = await User.authenticate({username:req.params.username,password:req.body.password})
+
+    if(checkPassword){
+      const user = await User.update(req.params.username, req.body);
+      return res.json({ user });
+    }
   } catch (err) {
     return next(err);
   }

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import JoblyApi from './JoblyApi';
-import { decode } from 'jsonwebtoken';
 
 class SignUpForm extends Component {
   constructor(props) {

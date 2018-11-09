@@ -6,9 +6,17 @@ import Search from './Search';
 class Jobs extends Component {
   constructor(props) {
     super(props);
-    this.state = { jobList: [], loading: true };
-
+    this.appliedJobID = this.props.currentUser.user.jobs.map(e=> e.id)
+    this.state = { jobList: [], loading: true, applied: this.appliedJobID };
     this.handleSearch = this.handleSearch.bind(this);
+    this.applyForJerb = this.applyForJerb.bind(this);
+  }
+
+  applyForJerb(id){
+    let appliedIdArr=this.state.applied;
+    console.log(this.state)
+    appliedIdArr.push(id)
+    this.setState({applied:appliedIdArr})
   }
 
   // search function for jobs. Changes state to
@@ -18,9 +26,14 @@ class Jobs extends Component {
       return (
         <JobCard
           key={job.id}
+          id={job.id}
           title={job.title}
           salary={job.salary}
           equity={job.equity}
+          handleApply={this.props.handleApply}
+          currentUser={this.props.currentUser}
+          applyForJerb={this.applyForJerb}
+          applied={this.state.applied}
         />
       );
     });
@@ -37,9 +50,14 @@ class Jobs extends Component {
       return (
         <JobCard
           key={job.id}
+          id={job.id}
           title={job.title}
           salary={job.salary}
           equity={job.equity}
+          handleApply={this.props.handleApply}
+          currentUser={this.props.currentUser}
+          applyForJerb={this.applyForJerb}
+          applied={this.state.applied}
         />
       );
     });

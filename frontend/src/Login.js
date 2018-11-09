@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import LoginForm from './LoginForm';
 import SignUpForm from './SignUpForm';
-import { Redirect } from 'react-router-dom';
 
 class Login extends Component {
   constructor(props) {

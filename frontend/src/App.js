@@ -10,6 +10,7 @@ class App extends Component {
     super(props);
     this.state = { currentUser: null, isLoading:true};
     this.handleUser = this.handleUser.bind(this);
+    this.handleApply = this.handleApply.bind(this);
   }
 
   // add user to current state
@@ -29,6 +30,19 @@ class App extends Component {
       user=token;
     }
     this.setState({ currentUser: user, isLoading: false });
+  }
+
+  async handleApply(id) {
+
+    await JoblyApi.applyForJob({username:this.state.currentUser.user.username,state:'applied'},id)
+
+    let appliedJobs = this.state.currentUser.user.jobs;
+    appliedJobs.push(id)
+
+    let user = this.state.currentUser;
+    // user.jobs = appliedJobs
+
+    this.setState({ currentUser: {...user,jobs:appliedJobs}, isLoading: false });
   }
 
   async componentDidMount() {
@@ -54,6 +68,7 @@ class App extends Component {
         <NavBar currentUser={this.state.currentUser} />
         <Routes
           handleUser={this.handleUser}
+          handleApply={this.handleApply}
           currentUser={this.state.currentUser}
         />
       </div>

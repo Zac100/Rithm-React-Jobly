@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import CompanyCard from './CompanyCard';
 import JoblyApi from './JoblyApi';
 import Search from './Search';
-import jerbs from './jerbs.jpg'
 
 class Companies extends Component {
   constructor(props) {

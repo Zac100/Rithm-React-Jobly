@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import JoblyApi from './JoblyApi';
-import { decode } from 'jsonwebtoken';
+
 
 class LoginForm extends Component {
   constructor(props) {

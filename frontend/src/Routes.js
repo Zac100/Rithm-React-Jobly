@@ -18,7 +18,6 @@ class Routes extends Component {
 
   render() {
     // If the below value exists, opens up all routes, otherwise routes redirects to home
-    let userExists = this.props.currentUser;
     return (
       <div className="Routes">
         <Switch>
@@ -33,7 +32,7 @@ class Routes extends Component {
             render={props => <Company {...props} />}
           />
 
-          <PrivateRoute currentUser={this.props.currentUser} exact path="/jobs" render={props => <Jobs />} />
+          <PrivateRoute currentUser={this.props.currentUser} exact path="/jobs" render={props => <Jobs currentUser={this.props.currentUser} handleApply={this.props.handleApply}/>} />
 
           <Route
             exact
@@ -47,7 +46,7 @@ class Routes extends Component {
             )}
           />
 
-          <PrivateRoute currentUser={this.props.currentUser} exact path="/profile" render={props => <Profile />} />
+          <PrivateRoute currentUser={this.props.currentUser} exact path="/profile" render={props => <Profile currentUser={this.props.currentUser} handleUser={this.props.handleUser}/>} />
 
           <PrivateRoute currentUser={this.props.currentUser}
             exact

@@ -10,8 +10,6 @@ class Home extends Component {
   render() {
     let welcomeMsg;
 
-    console.log(this.props.currentUser)
-
     if(this.props.currentUser){
       welcomeMsg = `Hello ${this.props.currentUser.user.first_name}, welcome back!`
     } else{

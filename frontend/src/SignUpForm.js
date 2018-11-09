@@ -33,7 +33,9 @@ class SignUpForm extends Component {
         password: this.state.password,
         first_name: this.state.first_name,
         last_name: this.state.last_name,
-        email: this.state.email
+        email: this.state.email,
+        photo_url:
+          'http://www.quickmeme.com/img/80/80bf9735504ee10a045dbf04b098d6a66470f58e34a59885e79a8915679b5ab4.jpg'
       };
 
       let token = await JoblyApi.signUp(userData);

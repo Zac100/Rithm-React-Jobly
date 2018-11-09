@@ -15,6 +15,7 @@ class Company extends Component {
     company.jobList = company.jobs.map(job => {
       return (
         <JobCard
+          companyView={true}
           key={job.id}
           title={job.title}
           salary={job.salary}

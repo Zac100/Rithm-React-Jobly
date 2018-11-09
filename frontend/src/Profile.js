@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
-import JoblyApi from './JoblyApi'
+import JoblyApi from './JoblyApi';
 
 //under construction
 class Profile extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
-        username: this.props.currentUser.user.username,
-        password: '',
-        first_name: this.props.currentUser.user.first_name,
-        last_name: this.props.currentUser.user.last_name,
-        email: this.props.currentUser.user.email,
-        photo_url: this.props.currentUser.user.photo_url,
-        error: []
+      username: this.props.currentUser.user.username,
+      password: '',
+      first_name: this.props.currentUser.user.first_name,
+      last_name: this.props.currentUser.user.last_name,
+      email: this.props.currentUser.user.email,
+      photo_url:
+        this.props.currentUser.user.photo_url ||
+        'http://www.quickmeme.com/img/80/80bf9735504ee10a045dbf04b098d6a66470f58e34a59885e79a8915679b5ab4.jpg',
+      error: []
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -28,16 +29,15 @@ class Profile extends Component {
     try {
       evt.preventDefault();
 
-
       let userData = {
-        password:this.state.password,
+        password: this.state.password,
         first_name: this.state.first_name,
         last_name: this.state.last_name,
         email: this.state.email,
         photo_url: this.state.photo_url
       };
 
-      let user = await JoblyApi.update(userData,this.state.username);
+      let user = await JoblyApi.update(userData, this.state.username);
       if (user) {
         this.props.handleUser(localStorage.getItem('_token'));
 
@@ -48,7 +48,7 @@ class Profile extends Component {
           last_name: user.last_name,
           email: user.email,
           photo_url: user.photo_url,
-          error:[]
+          error: []
         });
       }
     } catch (err) {
@@ -57,7 +57,6 @@ class Profile extends Component {
   }
 
   render() {
-
     return (
       <div className="Profile">
         <form onSubmit={this.handleSubmit}>
@@ -87,13 +86,13 @@ class Profile extends Component {
             onChange={this.handleChange}
             value={this.state.email}
           />
-           <label htmlFor="profile">Photo Url:</label>
+          <label htmlFor="profile">Photo Url:</label>
           <input
             type="photo_url"
             id="photo_url"
             name="photo_url"
             onChange={this.handleChange}
-            value={this.state.photo_url || ''}
+            value={this.state.photo_url}
           />
           <label htmlFor="profile">Password:</label>
           <input

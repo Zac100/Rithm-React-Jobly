@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
-import jerbs from "./jerbs.jpg";
-import "./NavBar.css";
+import React, { Component } from 'react';
+import { NavLink } from 'react-router-dom';
+import jerbs from './jerbs.jpg';
+import './NavBar.css';
 
 class NavBar extends Component {
   render() {
@@ -12,15 +12,15 @@ class NavBar extends Component {
         <NavLink to="/profile">Profile</NavLink>
         <NavLink to="/logout">Logout</NavLink>
       </div>
-    )
+    );
     const links = (
       <div>
         <NavLink to="/login">Login</NavLink>
       </div>
-    )
+    );
     return (
       <div>
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           <a className="navbar-brand" href="/">
             <img
               src={jerbs}

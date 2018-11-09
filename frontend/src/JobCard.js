@@ -6,25 +6,32 @@ class JobCard extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(evt){
+  handleSubmit(evt) {
     evt.preventDefault();
-    this.props.handleApply(this.props.id)
-    this.props.applyForJerb(this.props.id)
+    this.props.handleApply(this.props.id);
+    this.props.applyForJerb(this.props.id);
   }
 
   render() {
     let style = {};
     let button;
-    
-      if(this.props.applied.includes(this.props.id)){
-        button = (<button disabled="disabled" className={'btn-success'}>
-        APPLIED
-        </button>)
-      } else { 
-        button = (<button onClick={this.handleSubmit} className={'btn-danger'}>
-        APPLY
-        </button>)
+
+    // If job cards are being rendered through a single company card, do not show the apply buttons
+    if (!this.props.companyView) {
+      if (this.props.applied.includes(this.props.id)) {
+        button = (
+          <button disabled="disabled" className={'btn-success'}>
+            APPLIED
+          </button>
+        );
+      } else {
+        button = (
+          <button onClick={this.handleSubmit} className={'btn-danger'}>
+            APPLY
+          </button>
+        );
       }
+    }
 
     return (
       <div className="JobCard card" style={style}>

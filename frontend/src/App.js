@@ -8,7 +8,7 @@ import JoblyApi from './JoblyApi';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { currentUser: null, isLoading:true};
+    this.state = { currentUser: null, isLoading: true };
     this.handleUser = this.handleUser.bind(this);
     this.handleApply = this.handleApply.bind(this);
   }
@@ -17,36 +17,42 @@ class App extends Component {
   async handleUser(token) {
     let user;
     // more logic to handle once successful signup/login
-    if(token){
-    localStorage.setItem('_token', token);
+    if (token) {
+      localStorage.setItem('_token', token);
 
-    let tokenUser = decode(token);
+      let tokenUser = decode(token);
 
       user = await JoblyApi.getUser(tokenUser.username);
 
-    // this.props.history.push('/');
-    
-    } else{
-      user=token;
+      // this.props.history.push('/');
+    } else {
+      user = token;
     }
     this.setState({ currentUser: user, isLoading: false });
   }
 
   async handleApply(id) {
-
-    await JoblyApi.applyForJob({username:this.state.currentUser.user.username,state:'applied'},id)
+    await JoblyApi.applyForJob(
+      { username: this.state.currentUser.user.username, state: 'applied' },
+      id
+    );
 
     let appliedJobs = this.state.currentUser.user.jobs;
-    appliedJobs.push(id)
+    appliedJobs.push(id);
 
     let user = this.state.currentUser;
     // user.jobs = appliedJobs
 
-    this.setState({ currentUser: {...user,jobs:appliedJobs}, isLoading: false });
+    this.setState({
+      currentUser: { ...user, jobs: appliedJobs },
+      isLoading: false
+    });
   }
 
   async componentDidMount() {
     let token = localStorage.getItem('_token');
+
+    console.log('JERBS!');
 
     if (token) {
       let tokenUser = decode(token);
@@ -60,8 +66,8 @@ class App extends Component {
   }
 
   render() {
-    if(this.state.isLoading === true){
-      return <h1>Loading...</h1>
+    if (this.state.isLoading === true) {
+      return <h1>Loading...</h1>;
     }
     return (
       <div className="App">

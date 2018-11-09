@@ -38,24 +38,19 @@ class SignUpForm extends Component {
       };
 
       let token = await JoblyApi.signUp(userData);
+      if (token) {
+        this.props.handleUser(token);
 
-      localStorage.setItem('_token', token);
+        this.setState({
+          username: '',
+          password: '',
+          first_name: '',
+          last_name: '',
+          email: ''
+        });
 
-      let tokenUser = decode(token);
-
-      let user = await JoblyApi.getUser(tokenUser.username);
-
-      this.props.handleUser(user);
-
-      this.setState({
-        username: '',
-        password: '',
-        first_name: '',
-        last_name: '',
-        email: ''
-      });
-
-      this.props.history.push('/');
+        this.props.history.push('/');
+      }
     } catch (err) {
       this.setState({ error: err });
     }

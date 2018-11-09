@@ -29,17 +29,9 @@ class LoginForm extends Component {
     try {
       let token = await JoblyApi.login(userData);
       if (token) {
-        localStorage.setItem('_token', token);
-
-        let tokenUser = decode(token);
-
-        let user = await JoblyApi.getUser(tokenUser.username);
-
-        this.props.handleUser(user);
-
+        this.props.handleUser(token);
         this.setState({ username: '', password: '' });
-
-        this.props.history.push('/');
+        this.props.history.push('/')
       }
     } catch (err) {
       this.setState({ error: err });

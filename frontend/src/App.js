@@ -13,8 +13,21 @@ class App extends Component {
   }
 
   // add user to current state
-  handleUser(user) {
+  async handleUser(token) {
+    let user;
     // more logic to handle once successful signup/login
+    if(token){
+    localStorage.setItem('_token', token);
+
+    let tokenUser = decode(token);
+
+      user = await JoblyApi.getUser(tokenUser.username);
+
+    // this.props.history.push('/');
+    
+    } else{
+      user=token;
+    }
     this.setState({ currentUser: user, isLoading: false });
   }
 

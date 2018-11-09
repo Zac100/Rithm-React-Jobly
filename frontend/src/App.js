@@ -8,13 +8,14 @@ import JoblyApi from './JoblyApi';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { currUser: null };
+    this.state = { currentUser: null, isLoading:true};
     this.handleUser = this.handleUser.bind(this);
   }
 
   // add user to current state
-  async handleUser(user) {
-    await this.setState({ currUser: user });
+  handleUser(user) {
+    // more logic to handle once successful signup/login
+    this.setState({ currentUser: user, isLoading: false });
   }
 
   async componentDidMount() {
@@ -25,17 +26,22 @@ class App extends Component {
 
       let user = await JoblyApi.getUser(tokenUser.username);
 
-      this.handleUser(user);
+      this.setState({ currentUser: user, isLoading: false });
+    } else {
+      this.setState({ isLoading: false });
     }
   }
 
   render() {
+    if(this.state.isLoading === true){
+      return <h1>Loading...</h1>
+    }
     return (
       <div className="App">
-        <NavBar currentUser={this.state.currUser} />
+        <NavBar currentUser={this.state.currentUser} />
         <Routes
           handleUser={this.handleUser}
-          currentUser={this.state.currUser}
+          currentUser={this.state.currentUser}
         />
       </div>
     );

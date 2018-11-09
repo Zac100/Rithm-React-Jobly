@@ -7,6 +7,7 @@ import Jobs from './Jobs';
 import Login from './Login';
 import Logout from './Logout';
 import Profile from './Profile';
+import PrivateRoute from './PrivateRoute';
 import './App.css';
 
 class Routes extends Component {
@@ -24,21 +25,15 @@ class Routes extends Component {
           <Route exact path="/" render={props => <Home
                 currentUser={this.props.currentUser}/>} />
 
-          {userExists ? (
-            <Route exact path="/companies" render={props => <Companies />} />
-          ) : null}
+          <PrivateRoute currentUser={this.props.currentUser} exact path="/companies" render={props => <Companies />} />
 
-          {userExists ? (
-            <Route
-              exact
-              path="/companies/:handle"
-              render={props => <Company {...props} />}
-            />
-          ) : null}
+          <PrivateRoute currentUser={this.props.currentUser}
+            exact
+            path="/companies/:handle"
+            render={props => <Company {...props} />}
+          />
 
-          {userExists ? (
-            <Route exact path="/jobs" render={props => <Jobs />} />
-          ) : null}
+          <PrivateRoute currentUser={this.props.currentUser} exact path="/jobs" render={props => <Jobs />} />
 
           <Route
             exact
@@ -52,11 +47,9 @@ class Routes extends Component {
             )}
           />
 
-          {userExists ? (
-            <Route exact path="/profile" render={props => <Profile />} />
-          ) : null}
+          <PrivateRoute currentUser={this.props.currentUser} exact path="/profile" render={props => <Profile />} />
 
-          <Route
+          <PrivateRoute currentUser={this.props.currentUser}
             exact
             path="/logout"
             render={props => <Logout handleUser={this.props.handleUser} />}

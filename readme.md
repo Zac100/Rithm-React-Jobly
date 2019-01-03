@@ -7,6 +7,11 @@
 
 - This app creates a job board from fake job and user data. 
 - Users can login or register their own account and view jobs that they have applied for and available jobs.
+
+## How to Start
+- Type 'npm i' in your terminal in both the frontend and backend folder
+- Type 'npm start' in your terminal in both the frontend and backend folder
+- 
 - Login Information: Username: testinguser Password: testinguser
 
 ---

@@ -7,6 +7,7 @@
 
 - This app creates a job board from fake job and user data. 
 - Users can login or register their own account and view jobs that they have applied for and available jobs.
+- Login Information: Username: testinguser Password: testinguser
 
 ---
 

@@ -59,8 +59,10 @@ class SignUpForm extends Component {
 
   render() {
     return (
-      <div className="Login">
+      <div className="Profile container">
         <form onSubmit={this.handleSubmit} method="get">
+        <div className="row">
+
           <label htmlFor="login">Username:</label>
           <input
             type="text"
@@ -69,39 +71,52 @@ class SignUpForm extends Component {
             onChange={this.handleChange}
             value={this.state.username}
           />
+          </div>
+          <div className="row">
+
           <label htmlFor="login">Password:</label>
-          <input
-            type="password"
-            id="password"
-            name="password"
-            onChange={this.handleChange}
-            value={this.state.password}
-          />
+            <input
+              type="password"
+              id="password"
+              name="password"
+              onChange={this.handleChange}
+              value={this.state.password}
+            />  
+          </div>
+          <div className="row">
+
           <label htmlFor="login">First Name:</label>
-          <input
-            type="text"
-            id="first_name"
-            name="first_name"
-            onChange={this.handleChange}
-            value={this.state.first_name}
-          />
+            <input
+              type="text"
+              id="first_name"
+              name="first_name"
+              onChange={this.handleChange}
+              value={this.state.first_name}
+            />  
+          </div>
+          <div className="row">
+
           <label htmlFor="login">Last Name:</label>
-          <input
-            type="text"
-            id="last_name"
-            name="last_name"
-            onChange={this.handleChange}
-            value={this.state.last_name}
-          />
+            <input
+              type="text"
+              id="last_name"
+              name="last_name"
+              onChange={this.handleChange}
+              value={this.state.last_name}
+            />  
+          </div>
+          <div className="row">
+
           <label htmlFor="login">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            onChange={this.handleChange}
-            value={this.state.email}
-          />
-          <button>Login</button>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              onChange={this.handleChange}
+              value={this.state.email}
+            />  
+          </div>
+          <button>Sign Up</button>
         </form>
         <div className="bg-danger">{this.state.error}</div>
       </div>

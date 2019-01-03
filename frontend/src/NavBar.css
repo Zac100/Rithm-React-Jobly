@@ -1,3 +1,15 @@
+
+.navlink{
+    border: 1px solid black;
+    padding:0.5em;
+    background-color: white;
+}
+
+.navbar-nav{
+    display: flex;
+    justify-content: flex-end;
+    width:100%
+}
 .active {
-    color:red;
+    background-color:rgb(145, 152, 155);
 }

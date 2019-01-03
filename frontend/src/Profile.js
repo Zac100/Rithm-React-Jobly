@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import JoblyApi from './JoblyApi';
+import './Profile.css';
 
-//under construction
+
 class Profile extends Component {
   constructor(props) {
     super(props);
@@ -58,10 +59,17 @@ class Profile extends Component {
 
   render() {
     return (
-      <div className="Profile">
+      <div className="Profile container">
         <form onSubmit={this.handleSubmit}>
+        <div className="row">
           <label htmlFor="profile">Username:</label>
-          <p>{this.state.username}</p>
+          <input
+            value={this.state.username}
+            readonly
+          />
+          </div>
+          <div className="row">
+
           <label htmlFor="profile">First Name:</label>
           <input
             type="text"
@@ -70,6 +78,9 @@ class Profile extends Component {
             onChange={this.handleChange}
             value={this.state.first_name}
           />
+          </div>
+          <div className="row">
+
           <label htmlFor="profile">Last Name:</label>
           <input
             type="text"
@@ -78,6 +89,9 @@ class Profile extends Component {
             onChange={this.handleChange}
             value={this.state.last_name}
           />
+          </div>
+          <div className="row">
+
           <label htmlFor="profile">Email:</label>
           <input
             type="email"
@@ -86,6 +100,9 @@ class Profile extends Component {
             onChange={this.handleChange}
             value={this.state.email}
           />
+          </div>
+          <div className="row">
+
           <label htmlFor="profile">Photo Url:</label>
           <input
             type="photo_url"
@@ -94,6 +111,9 @@ class Profile extends Component {
             onChange={this.handleChange}
             value={this.state.photo_url}
           />
+          </div>
+          <div className="row">
+
           <label htmlFor="profile">Password:</label>
           <input
             type="password"
@@ -102,6 +122,7 @@ class Profile extends Component {
             onChange={this.handleChange}
             value={this.state.password}
           />
+          </div>
           <button>Save Changes</button>
         </form>
         <div className="bg-danger">{this.state.error}</div>

@@ -1,0 +1,20 @@
+.job-card-container{
+  width: 85%;
+  margin: 0 auto;
+}
+.job-card-body{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: left;
+}
+.job-card-body > div{
+  margin: auto 3em;
+}
+
+.Search{
+  width: 85vw;
+    margin: 0 auto;
+    display: flex;
+}

@@ -1,3 +1,26 @@
 .CompanyCard {
   padding: 25px;
 }
+
+.job-image{
+  width:7em;
+  height:7em;
+}
+
+.card-text-container{
+  display: flex;
+    flex-direction: column;
+    align-items: baseline;
+}
+
+.card-body{
+  width:100%;
+  display:flex;
+  justify-content: space-between;
+  
+}
+
+.card-text{
+  width: 85%;
+    text-align: left;
+}

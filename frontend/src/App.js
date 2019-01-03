@@ -52,7 +52,6 @@ class App extends Component {
   async componentDidMount() {
     let token = localStorage.getItem('_token');
 
-    console.log('JERBS!');
 
     if (token) {
       let tokenUser = decode(token);

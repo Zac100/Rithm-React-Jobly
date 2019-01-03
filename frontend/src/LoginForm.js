@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import JoblyApi from './JoblyApi';
+import './LoginForm.css'
 
 
 class LoginForm extends Component {
@@ -42,6 +43,9 @@ class LoginForm extends Component {
     return (
       <div className="Login">
         <form onSubmit={this.handleSubmit} method="get">
+        <div className="container">
+        <div className="row">
+
           <label htmlFor="login">Username:</label>
           <input
             type="text"
@@ -50,6 +54,9 @@ class LoginForm extends Component {
             onChange={this.handleChange}
             value={this.state.username}
           />
+          </div>
+          <div className="row">
+
           <label htmlFor="login">Password:</label>
           <input
             type="password"
@@ -58,6 +65,8 @@ class LoginForm extends Component {
             onChange={this.handleChange}
             value={this.state.password}
           />
+          </div>
+          </div>
           <button>Login</button>
         </form>
         <div className="bg-danger">{this.state.error}</div>

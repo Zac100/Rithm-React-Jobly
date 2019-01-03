@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './JobCard.css';
 
 class JobCard extends Component {
   constructor(props) {
@@ -34,12 +35,16 @@ class JobCard extends Component {
     }
 
     return (
-      <div className="JobCard card" style={style}>
-        <div className="card-body">
-          <h5 className="card-title">{this.props.title}</h5>
-          <p className="card-text">Salary: {this.props.salary}</p>
-          <p className="card-text">Equity: {this.props.equity}</p>
+      <div className="job-card-container card" style={style}>
+        <div className="job-card-body">
+        <div>
+          <h5 className="job-card-title">{this.props.title}</h5>
+          <p className="job-card-text">Salary: {this.props.salary}</p>
+          <p className="job-card-text">Equity: {this.props.equity}</p>
+        </div>
+        <div>
           {button}
+        </div>
         </div>
       </div>
     );

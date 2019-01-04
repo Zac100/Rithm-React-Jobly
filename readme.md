@@ -9,6 +9,9 @@
 - Users can login or register their own account and view jobs that they have applied for and available jobs.
 
 ---
+## Check It Out
+<img src="https://www.zacbennett.io/assets/JoblyPage.png"></img>
+
 
 ## Contributors
 

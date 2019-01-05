@@ -246,7 +246,7 @@ COPY public.jobs (id, title, salary, equity, company_handle) FROM stdin;
 49	Conservator, furniture	110000	0.119999999999999996	watson-davis
 50	Air cabin crew	105000	0.0599999999999999978	ingram-ferguson-and-rubio
 51	Financial trader	153000	0.0599999999999999978	garner-michael
-52	Nurse, children's	162000	0.149999999999999994	humphrey-llc
+52	Nurse, childrens	162000	0.149999999999999994	humphrey-llc
 53	Information officer	200000	0.130000000000000004	hall-mills
 54	Paramedic	122000	0.119999999999999996	baker-santos
 55	Consulting civil engineer	60000	0.0599999999999999978	sellers-bryant

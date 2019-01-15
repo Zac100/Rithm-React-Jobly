@@ -13,8 +13,8 @@
 <img src="https://www.zacbennett.io/assets/JoblyPage.png"></img>
 
 https://frontjoblyzb.herokuapp.com/
-Username: usertest
-password: usertest
+Username: testing123
+password: testing123
 
 ## Contributors
 
